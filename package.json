@@ -18,5 +18,13 @@
     "mongoose": "^6.8.4",
     "nodemon": "^2.0.20"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudarshan441/mock13.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sudarshan441/mock13/issues"
+  },
+  "homepage": "https://github.com/sudarshan441/mock13#readme",
   "description": ""
 }
