@@ -53,6 +53,12 @@ app.get("/jobs",async(req,res)=>{
     res.send(jobs);
    
 })
+app.delete("/jobs/:id",async(req,res)=>{
+    const {id} = req.params;
+    const jobs=await jobModel.deleteOne({_id:id})
+    res.send({message:"Successfully deleted"});
+   
+})
 mongoose.connect("mongodb+srv://sudarshan:sudarshan@cluster0.ydgncyl.mongodb.net/mock13").then(()=>{
     app.listen(8002,()=>{
         console.log("server started")
