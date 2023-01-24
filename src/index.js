@@ -11,7 +11,6 @@ app.use(cors());
 app.get("/",(req,res)=>{
  res.send("api is working")
 })
-
 app.post("/login",async(req,res)=>{
     const {email,password}=req.body
     const user=await userModel.findOne({email});
@@ -57,6 +56,13 @@ app.delete("/jobs/:id",async(req,res)=>{
     const {id} = req.params;
     const jobs=await jobModel.deleteOne({_id:id})
     res.send({message:"Successfully deleted"});
+   
+})
+app.put("/jobs/:id",async(req,res)=>{
+    const {id} = req.params;
+    const { company,contract,position,location} = req.body;
+    const jobs=await jobModel.updateOne({_id:id},{$set:{company,contract,position,location}});
+    res.send({message:"Successfully edited"});
    
 })
 mongoose.connect("mongodb+srv://sudarshan:sudarshan@cluster0.ydgncyl.mongodb.net/mock13").then(()=>{
